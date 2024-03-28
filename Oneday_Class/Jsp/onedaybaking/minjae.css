@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+
+.navbar {
+	background-color: rgb(188, 139, 81);
+}
+
+.navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: flex;
+}
+
+.navbar li {
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+.navbar li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+
+.navbar li a:hover {
+	background-color:rgb(125, 96, 61);
+}
+
+.current-page{
+	background-color:rgb(125, 96, 61);
+}
+
+div.count {
+	position: absolute;
+	top: 70px;
+	left: 400px;
+}
+
+#square {
+	border: 1px solid #B39E8B;
+	margin: 40px;
+}
+
+.menuSub{
+	font-size: 20px;
+	border: 1px solid #927463;
+	border-radius: 50px;
+	background-color: #927463;
+	color: white;
+	width: 220px;
+	height: 65px;
+	text-align: center;
+	padding : 16px 0;
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.pagination {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.pagination li {
+    display: inline;
+    margin-right: 5px;	/*버튼사이 간격*/
+}
+
+.pagination li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+}
+
+.pagination li.active a {
+    color: white;
+    background-color: #927463;
+}
+
+.filebutton{
+	border: 1px solid rgb(118, 118, 118);
+	margin-left: 10px;
+    border-radius: 4px;
+    padding: 5px;
+}

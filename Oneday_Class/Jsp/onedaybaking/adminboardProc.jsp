@@ -1,17 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean id="bmgr" class="onedaybacking.boardMgr" />
-<jsp:useBean id="bbean" class="onedaybacking.boardBean"/>
-<jsp:setProperty property="*" name="bbean"/>
+<jsp:useBean id="mmgr" class="onedaybacking.minjaeMgr" />
+<jsp:useBean id="mbean" class="onedaybacking.boardBean"/>
+<jsp:setProperty property="*" name="mbean"/>
 <%
 	String flag = request.getParameter("flag");
 	String method = request.getMethod();
-	//out.print(method);
 	if(method.equalsIgnoreCase("POST")){
-		bmgr.insertboard(bbean);
+		mmgr.insertboard(mbean);
 	}
 
 %>
 <script type="text/javascript">
 	alert("등록되었습니다.");
-	window.location.href = "makeboard.jsp";
+	window.location.href = "adminBoard.jsp";
 </script>

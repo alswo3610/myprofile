@@ -5,122 +5,82 @@
 	padding: 0;
 }
 
-table {
-	border-spacing: 0px;
-	border-style: none;
-	padding: 0px;
-	width: 100%;
-}
-
-tr {
-	width: 100%;
-}
-    
-td {
-	border-spacing: 0px;
-	border-style: none;
-	padding: 0px;
-}
-
-div {
-	width: 35%;
-}
-
-button {
-	border: none;
-	width: 80px;
-	height: 30px;
+#header_bar {
 	background-color: #F1E5E0;
+	height: 30px;
+	padding: 0;
 }
 
-button:hover {
+#header_bar .header_top {
+	list-style-type: none;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	padding-right: 450px;
+	overflow: hidden;
+	display: flex;
+	height: 100%;
+}
+
+#header_bar .header_top li {
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+#header_bar .header_top li a {
+	width: 100px;
+	height: 100%;
+	display: block;
+	color: black;
+	margin: 0;
+	padding: 4px 0;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14;
+}
+
+#header_bar .header_top li a:hover {
 	background-color: #E4CBC0;
-}
-
-.logo {
-	position: absolute;
-	width: 200px;
-	height: 180px;
-	left: 170px;
-	top: 9px;
-}
-
-#logo_img {
-	position: absolute;
-	width: 200px;
-	height: 180px;
-	left: 170px;
-	top: 9px;
 }
 
 #item {
 	background-color:transparent;
-	position: absolute;
-	width: 48px;
-	height: 29px;
-	left: 400px;
-	top: 90px;
 	cursor: pointer;
-	
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 29px;
+	border: none;
 }
 
 #class {
 	background-color:transparent;
-	position: absolute;
-	width: 60px;
-	height: 29px;
-	left: 470px;
-	top: 90px;
 	cursor: pointer;
-	
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 29px;
-}
-
-#search {
-	height: 30px;
-	position: absolute;
-	left: 580px;
-	top: 87px;
-}
-
-#search_icon {
-	width: 15px;
-	height: 15px;
-	position: absolute;
-	left: 1005px;
-	top: 93px;
+	border: none;
 }
 
 .header_info {
-	position: absolute;
-	top: 50px;
-	left: 800px;
-	width: 300px;
+	padding: 0;
+	margin: 0;
 }
 
 .header_info li {
 	display: inline-block;
 	position: relative;
-	top: 10px;
-	left: 260px;
 }
+
 .header_info li a {
 	display: block;
 	position: relative;
 	margin: 20px;
 	padding-bottom: 24px;
 }
-.header_info li a img {
-	width: 30px;
-	height: 30px;
-}
+
 .header_info li a .item {
 	position: absolute;
 	bottom: 0;
@@ -131,13 +91,4 @@ button:hover {
 	transform: translate(-50%, 0);
 	font-style: normal;
 	font-size: 12px;
-}
-.header_info li a .notification-dot {
-    position: absolute;
-    top: -4px;
-    right: -8px;
-    width: 12px;
-    height: 12px;
-    background-color: red;
-    border-radius: 50%;
 }
