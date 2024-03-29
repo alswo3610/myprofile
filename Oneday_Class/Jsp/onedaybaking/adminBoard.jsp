@@ -78,7 +78,7 @@
 		<div align="center">
 			<br><br>
 			<%
-			Vector<boardBean> llist = mmgr.selectAllBoards();
+			Vector<boardBean> llist = mmgr.selectAllAdminBoards();
 			%>
 			<table class="table table-hover" style="text-align: center; width: 60%">
 				<thead>
@@ -102,7 +102,7 @@
 
 				<tbody>
 					<%
-					Vector<boardBean> list = mmgr.selectAllBoards();
+					Vector<boardBean> list = mmgr.selectAllAdminBoards();
 					for (int i = 0; i < list.size(); i++) {
 						boardBean bbean = list.get(i);
 					%>

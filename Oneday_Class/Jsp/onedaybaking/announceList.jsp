@@ -1,5 +1,6 @@
-<!-- announceWrite.jsp -->
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@page import="java.util.Vector"%>
+<%@page import="onedaybacking.announceBean"%>
 <jsp:include page="top.jsp"/>
 <jsp:useBean id="mmgr" class="onedaybacking.minjaeMgr" />
 
@@ -20,7 +21,8 @@
 <link href="minjae.css" rel="stylesheet" type="text/css">
 
 <%
-	int totalItems = 23;		//게시판 글 개수
+	Vector<announceBean> list = mmgr.selectAllUserBoards();
+	int totalItems = list.size(); // 게시글의 총 개수
 	int itemsPerPage = 10;	//페이지당 볼 개수
 	int totalPages = (totalItems + itemsPerPage - 1) / itemsPerPage; // 전체 페이지 수 계산
 	int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1; // 현재 페이지 또는 기본값 1
@@ -46,19 +48,18 @@
 				<th scope="col" style="width:30px;">작성일자</th>
 				<th scope="col" style="width:20px;">조회수</th>
 			</tr>
-			<div>
 				<%
-					for (int i = startItem; i < endItem; i++) {
+				for (int i = startItem; i < endItem; i++) {
+				    announceBean abean = list.get(i);
 				%>
-				<tr style="height: 60px;">
-					<td>DB</td>
-					<td>DB</td>
-					<td>DB</td>
-					<td>DB</td>
-					<td>DB</td>
+				<tr style="height: 60px;" onclick="location.href='announceContent.jsp?id=<%=abean.getAnnounceNum()%>'">
+					<td><%=abean.getAnnounceNum()%></td>
+					<td><%=abean.getAnnounceSubject()%></td>
+					<td><%=abean.getAnnounceWriter()%></td>
+					<td><%=abean.getAnnounceDay()%></td>
+					<td><%=abean.getAnnounceView()%>	</td>
 					<%}%>
 				</tr>
-			</div>
 		</table>
 		<div style="padding: 10px 30px 0px 0px;">
 			<button class="button" onclick="location.href='announceWrite.jsp'" style="float: right; width: 70px;">글쓰기</button>

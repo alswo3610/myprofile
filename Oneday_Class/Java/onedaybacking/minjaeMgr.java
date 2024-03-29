@@ -38,8 +38,9 @@ public class minjaeMgr {
 		return maxNumAB;
 	}
 	
+	
 	// 관리자 게시판 리스트
-	public Vector<boardBean> selectAllBoards() {
+	public Vector<boardBean> selectAllAdminBoards() {
 		Vector<boardBean> boardList = new Vector<boardBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -69,6 +70,7 @@ public class minjaeMgr {
 		return boardList;
 	}
 	
+	
 	// 관리자 게시판 만들기
 	public void insertboard(boardBean bean) {
 		Connection con = null;
@@ -94,6 +96,7 @@ public class minjaeMgr {
 		}
 	}
 
+	
 	// 관리자 게시판 지우기
 	public void deleteboard(boardBean bean) {
 		Connection con = null;
@@ -136,6 +139,7 @@ public class minjaeMgr {
 		return maxNumUB;
 	}
 
+	
 	// 유저 게시글 작성
 	public void writeboard(announceBean bean) {
 	    Connection con = null;
@@ -158,6 +162,45 @@ public class minjaeMgr {
 	    }
 	}
 
+	
+	// 유저 게시글 리스트
+	public Vector<announceBean> selectAllUserBoards() {
+		Vector<announceBean> announceList = new Vector<announceBean>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "SELECT * FROM announce ORDER BY announceNum DESC";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				announceBean announce = new announceBean();
+				announce.setAnnounceNum(rs.getInt("announceNum"));
+				announce.setAnnounceSubject(rs.getString("announceSubject"));
+				announce.setAnnounceContent(rs.getString("announceContent"));
+				announce.setAnnounceWriter(rs.getString("announceWriter"));
+				announce.setAnnounceDay(rs.getString("announceDay"));
+				announce.setAnnounceView(rs.getInt("announceView"));
+				announceList.add(announce);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return announceList;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -190,38 +233,5 @@ public class minjaeMgr {
 		}
 		return totalCount;
 	}
-	
-	
-	// 여기부터 해 민재야
-	public Vector<boardBean> selectAllBoards() {
-		Vector<boardBean> boardList = new Vector<boardBean>();
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
-		try {
-			con = pool.getConnection();
-			sql = "SELECT * FROM adminboard ORDER BY num DESC";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				boardBean board = new boardBean();
-				board.setNum(rs.getInt("num"));
-				board.setEname(rs.getString("ename"));
-				board.setKname(rs.getString("kname"));
-				board.setUsevalue(rs.getString("usevalue"));
-				board.setListvalue(rs.getString("listvalue"));
-				board.setReadvalue(rs.getString("readvalue"));
-				board.setWritevalue(rs.getString("writevalue"));
-				boardList.add(board);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt, rs);
-		}
-		return boardList;
-	}
-	
-	
+
 }

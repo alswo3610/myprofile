@@ -91,7 +91,7 @@
 				
 				<tbody id="square">
 					<%
-						Vector<boardBean> llist = mgr.selectAllBoards();
+						Vector<boardBean> llist = mgr.selectAllAdminBoards();
 					%>
 					<tr style="background-color: rgb(237, 237, 237)">
 						<th scope="col">주문번호</th>
@@ -103,7 +103,7 @@
 						<th scope="col">주문일자</th>
 					</tr>
 					<%
-						Vector<boardBean> list = mgr.selectAllBoards();
+						Vector<boardBean> list = mgr.selectAllAdminBoards();
 						for (int i = 0; i < list.size(); i++) {
 							boardBean bbean = list.get(i);
 					%>

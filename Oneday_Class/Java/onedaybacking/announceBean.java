@@ -59,4 +59,10 @@ public class announceBean {
 	public int getAnnounceView() {
 		return announceView;
 	}
+
+	public void setAnnounceView(int announceView) {
+		this.announceView = announceView;
+	}
+
+
 }
