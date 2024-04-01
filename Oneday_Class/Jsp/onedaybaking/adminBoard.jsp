@@ -1,8 +1,8 @@
 <!-- makeboard.jsp -->
-<%@page import="onedaybacking.boardBean"%>
+<%@page import="onedaybaking.boardBean"%>
 <%@page import="java.util.Vector"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean id="mmgr" class="onedaybacking.minjaeMgr" />
+<jsp:useBean id="mmgr" class="onedaybaking.minjaeMgr" />
 
 <html>
 <head>
@@ -108,7 +108,7 @@
 					%>
 
 					<tr>
-						<th><%=bbean.getNum()%></th>
+						<th><%=llist.size() - i%></th>
 						<td><%=bbean.getEname()%></td>
 						<td><%=bbean.getKname()%></td>
 						<td><%=bbean.getUsevalue()%></td>
@@ -121,6 +121,7 @@
 						</td>
 					</tr>
 					<%
+						
 					}
 					%>
 				</tbody>

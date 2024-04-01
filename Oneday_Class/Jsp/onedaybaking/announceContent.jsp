@@ -1,9 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page="top.jsp"/>
 <%@page import="java.util.Vector"%>
-<jsp:useBean id="mmgr" class="onedaybacking.minjaeMgr" />
-<jsp:useBean id="abean" class="onedaybacking.announceBean"/>
-
+<jsp:useBean id="mmgr" class="onedaybaking.minjaeMgr" />
+<jsp:useBean id="mbean" class="onedaybaking.announceBean"/>
+<%
+%>
 <html>
 <head>
 <title>게시글 상세보기</title>
@@ -17,14 +18,17 @@
 	integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 	crossorigin="anonymous"></script>
 
-<link href="minjae.css" rel="stylesheet" type="announceext/css">
+<link href="minjae.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 <%
-Vector<onedaybacking.announceBean> announceList = mmgr.selectAllUserBoards();
-onedaybacking.announceBean announce = announceList.get(0);
+int announceNum  = Integer.parseInt(request.getParameter("id"));
+
+Vector<onedaybaking.announceBean> announceList = mmgr.selectAllUserBoards();
+int listSize = announceList.size();
+onedaybaking.announceBean announce = announceList.get(listSize - announceNum   - 1);
 %>
 
 	<br><br>
@@ -43,7 +47,7 @@ onedaybacking.announceBean announce = announceList.get(0);
 				</tr>
 				<tr>
 					<td>
-						 파일주소 넣기 [첨부파일.jsp]
+						<a href = "javascript:down('<%=announce.getAnnounceFile()%>')"><%=announce.getAnnounceFile()%></a>
 					</td>
 				</tr>
 				<tr height="10px"></tr>
@@ -62,5 +66,8 @@ onedaybacking.announceBean announce = announceList.get(0);
 			<br><br>
 			<br><br>
 			<br><br>
+	<form name="downFrm" method="post" action="fileDownload.jsp">
+	<input type="hidden" name="<%=announce.getAnnounceFile()%>">
+	</form>
 	</div>
 </body>

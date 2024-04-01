@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.Vector"%>
-<%@page import="onedaybacking.announceBean"%>
+<%@page import="onedaybaking.announceBean"%>
 <jsp:include page="top.jsp"/>
-<jsp:useBean id="mmgr" class="onedaybacking.minjaeMgr" />
+<jsp:useBean id="mmgr" class="onedaybaking.minjaeMgr" />
 
 <html>
 <head>
@@ -48,18 +48,23 @@
 				<th scope="col" style="width:30px;">작성일자</th>
 				<th scope="col" style="width:20px;">조회수</th>
 			</tr>
-				<%
+			<%
+				int start = totalItems - startItem;
 				for (int i = startItem; i < endItem; i++) {
-				    announceBean abean = list.get(i);
-				%>
-				<tr style="height: 60px;" onclick="location.href='announceContent.jsp?id=<%=abean.getAnnounceNum()%>'">
-					<td><%=abean.getAnnounceNum()%></td>
-					<td><%=abean.getAnnounceSubject()%></td>
-					<td><%=abean.getAnnounceWriter()%></td>
-					<td><%=abean.getAnnounceDay()%></td>
-					<td><%=abean.getAnnounceView()%>	</td>
-					<%}%>
+					announceBean abean = list.get(i);
+					int count = abean.getAnnounceView();
+					int announceNum = abean.getAnnounceNum();
+			%>
+				<tr style="height: 60px;">
+				<td><%=start-- %></td>
+				<td onclick="location.href='announceContent.jsp?id=<%=announceNum%>'"><%=abean.getAnnounceSubject()%></td>
+				<td><%=abean.getAnnounceWriter()%></td>
+				<td><%=abean.getAnnounceDay()%></td>
+				<td><%=count%></td>
 				</tr>
+			<%
+			}
+			%>
 		</table>
 		<div style="padding: 10px 30px 0px 0px;">
 			<button class="button" onclick="location.href='announceWrite.jsp'" style="float: right; width: 70px;">글쓰기</button>

@@ -20,6 +20,7 @@
 	function updateFileName(input) {
 		var fileName = input.files[0].name;
 		document.getElementById('fileName').textContent = fileName;
+		document.getElementById('announceFile').value = fileName;
 	}
 	
 	function insertBoard() {
@@ -46,6 +47,7 @@
 
 <body>
 	<form name="frm" method="POST" action="boardWriteProc.jsp" onsubmit="return insertBoard();">
+		<input type="hidden" id="announceFile" name="announceFile" value="">
 		<br><br>
 		<br><br>
 		<br><br>
@@ -66,8 +68,8 @@
 					<td>
 					<div style="display: flex; align-items: center;">
 						<span id="fileName" style="flex: 1; padding: 5px; color: rgb(118, 118, 118); border: 1px solid rgb(118, 118, 118); border-radius: 3px;">첨부파일을 선택하세요</span>
-						<label style="font-size: 13px;color: white; background-color: #B4866C; border-color: #B4866C;" class="filebutton" for="profile">파일선택</label>
-						<input type="file" id="profile" style="margin-left: 10px; display:none;" onchange="updateFileName(this)" >
+						<label style="font-size: 13px;color: white; background-color: #B4866C; border-color: #B4866C;" class="filebutton" for="announceFiles">파일선택</label>
+						<input type="file" id="announceFiles" style="margin-left: 10px; display:none;" onchange="updateFileName(this)" >
 					</div>
 					</td>
 				</tr>
@@ -82,17 +84,13 @@
 				</tr>
 			</table>
 			<br><br>
-			<button style="padding: 10px 70px; display: block; margin: 0 auto; background-color: #884A01; color: white; border: 1px solid #884A01; border-radius: 10px;" onclick="insertBoardAndRedirect()">
+			<button type="submit" style="padding: 10px 70px; display: block; margin: 0 auto; background-color: #884A01; color: white; border: 1px solid #884A01; border-radius: 10px;">
 				등록하기
 			</button>
 			<br><br>
 			<br><br>
 			<br><br>
 			<br><br>
-	
-	
-	
-	
 		</div>
 	</form>
 </body>

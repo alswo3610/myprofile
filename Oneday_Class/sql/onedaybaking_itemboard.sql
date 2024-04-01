@@ -16,32 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminboard`
+-- Table structure for table `itemboard`
 --
 
-DROP TABLE IF EXISTS `adminboard`;
+DROP TABLE IF EXISTS `itemboard`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminboard` (
-  `num` int NOT NULL AUTO_INCREMENT,
-  `ename` char(20) NOT NULL,
-  `kname` char(20) NOT NULL,
-  `usevalue` char(2) DEFAULT '0',
-  `listvalue` int DEFAULT '0',
-  `readvalue` int DEFAULT '0',
-  `writevalue` int DEFAULT '0',
-  PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `itemboard` (
+  `itemboardkey` int NOT NULL AUTO_INCREMENT,
+  `commenttype` varchar(10) DEFAULT NULL,
+  `commentcontent` varchar(100) DEFAULT NULL,
+  `commentdate` date DEFAULT NULL,
+  `commentimg1` varchar(100) DEFAULT NULL,
+  `commentimg2` varchar(100) DEFAULT NULL,
+  `commentimg3` varchar(100) DEFAULT NULL,
+  `itemkey` int DEFAULT NULL,
+  `memberid` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`itemboardkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminboard`
+-- Dumping data for table `itemboard`
 --
 
-LOCK TABLES `adminboard` WRITE;
-/*!40000 ALTER TABLE `adminboard` DISABLE KEYS */;
-INSERT INTO `adminboard` VALUES (1,'announcement','공지사항','0',0,0,0),(2,'freeboard','자유게시판','0',0,0,0),(3,'inquiry','문의사항','0',0,0,0),(4,'Q&A','Q&A','0',0,0,0),(5,'hello World','테스트','0',0,1,2),(6,'ㅁㄴㅇㅁ','ㅁㄴㅇㄴㅁ','0',1,NULL,NULL),(7,'ㅗㅓ','ㅗㅓ호','0',NULL,NULL,NULL),(8,'ㄴㅁㅇ','ㅁㄴㅇㄴㅁㅇ','0',NULL,NULL,NULL),(9,'ㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㄴㅁㅇ','0',NULL,NULL,NULL),(12,'호ㅓㅗ허','호ㅓ호ㅓ','0',1,1,2),(13,'acsac','sacsacas','0',1,0,1),(22,'ㅁㄴㅁㅊㄴㅁㅊ','ㅁㅊㅁㄴㅊㄴㅁ','0',1,0,2);
-/*!40000 ALTER TABLE `adminboard` ENABLE KEYS */;
+LOCK TABLES `itemboard` WRITE;
+/*!40000 ALTER TABLE `itemboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemboard` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

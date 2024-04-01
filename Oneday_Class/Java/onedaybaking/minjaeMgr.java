@@ -1,4 +1,4 @@
-package onedaybacking;
+package onedaybaking;
 
 import java.text.SimpleDateFormat;
 import java.util.Vector;
@@ -11,6 +11,14 @@ public class minjaeMgr {
 	private DBConnectionMgr pool;
 	private final SimpleDateFormat SDF_DATE = new SimpleDateFormat("yyyy'년'  M'월' d'일' (E)");
 
+	public static final String SAVEFOLDER = "C:/Jsp/myapp/src/main/webapp/ch13/storage/";
+
+	//업로드 파일 인코딩
+	public static final String ENCODEING = "UTF-8";
+	
+	//업로드 파일 크기
+	public static final int MAXSIZE = 1024*1024*20;	//20MB
+	
 	public minjaeMgr() {
 		pool = DBConnectionMgr.getInstance();
 	}
@@ -24,11 +32,11 @@ public class minjaeMgr {
 		int maxNumAB = 0;
 		try {
 			con = pool.getConnection();
-			sql = "select max(num) from adminboard";
+			sql = "select aount(*) from adminboard";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 	        if (rs.next()) {
-	            maxNumAB = rs.getInt(1) + 1; // 현재 최대값보다 1 큰 값
+	        	maxNumAB = rs.getInt(1); // 현재 최대값보다 1 큰 값
 	        }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -125,11 +133,11 @@ public class minjaeMgr {
 		int maxNumUB = 0;
 		try {
 			con = pool.getConnection();
-			sql = "select max(announceNum) from announce";
+			sql = "select count(*) from announce";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 	        if (rs.next()) {
-	            maxNumUB = rs.getInt(1) + 1; // 현재 최대값보다 1 큰 값
+	            maxNumUB = rs.getInt(1); // 현재 최대값보다 1 큰 값
 	        }
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -147,13 +155,14 @@ public class minjaeMgr {
 	    String sql = null;
 	    try {
 	        con = pool.getConnection();
-	        sql = "insert into announce (announceSubject, announceContent, announceWriter, announceDay, announceView) values (?,?,?,?,?)";
+	        sql = "insert into announce (announceSubject, announceContent, announceWriter, announceDay, announceView, announceFile) values (?,?,?,?,?,?)";
 	        pstmt = con.prepareStatement(sql);
 	        pstmt.setString(1, bean.getAnnounceSubject());
 	        pstmt.setString(2, bean.getAnnounceContent());
 	        pstmt.setString(3, bean.getAnnounceWriter());
 	        pstmt.setTimestamp(4, new Timestamp(System.currentTimeMillis())); // 현재 시간을 Timestamp 형식으로 설정
 	        pstmt.setInt(5, 0); // 조회수 초기값 0으로 설정
+	        pstmt.setString(6, bean.getAnnounceFile());
 	        pstmt.executeUpdate();
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -165,11 +174,11 @@ public class minjaeMgr {
 	
 	// 유저 게시글 리스트
 	public Vector<announceBean> selectAllUserBoards() {
-		Vector<announceBean> announceList = new Vector<announceBean>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
+		Vector<announceBean> announceList = new Vector<announceBean>();
 		try {
 			con = pool.getConnection();
 			sql = "SELECT * FROM announce ORDER BY announceNum DESC";
@@ -183,6 +192,7 @@ public class minjaeMgr {
 				announce.setAnnounceWriter(rs.getString("announceWriter"));
 				announce.setAnnounceDay(rs.getString("announceDay"));
 				announce.setAnnounceView(rs.getInt("announceView"));
+				announce.setAnnounceFile(rs.getString("announceFile"));
 				announceList.add(announce);
 			}
 		} catch (Exception e) {
@@ -193,7 +203,25 @@ public class minjaeMgr {
 		return announceList;
 	}
 	
-
+	//조회수 증가
+	public void upCount(int announceNum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		int upCount = 0;
+		try {
+			con = pool.getConnection();
+			sql = "update announce set anncounceView = announceView+1 where announceNum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, announceNum);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		
+	}
 	
 	
 	

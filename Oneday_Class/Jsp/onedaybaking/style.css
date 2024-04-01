@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+
+	.button{
+		width:480px;
+		height:40px;
+		font-size:20px;
+		background-color:white;
+		border-radius:10px;
+	}
+	.table-spacing{
+		font-size:14px;
+		
+	}
+	
+	td{
+		text-align:left;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.agree{
+		padding-left: 200px;
+	}
+	.id-text{
+		padding-top: 0;
+   	 	padding-left: 140px;
+	}
+	.gender{
+		padding-left: 200px;
+	}
+	.id td{
+		padding-bottom: 0;
+	}
+	.password td{
+		padding-bottom: 0;
+	}
+	#idSearch{
+		text-align:right;
+	}
+	.idSearchButton{
+		float:right;
+		width:100px;
+		background-color:white;
+		border-radius:5px;
+	}
+	.loginButton{
+		width:80px;
+		background-color:white;
+		border-radius:5px;
+	}
+	.vertical-line {
+        border-left: 0.5px solid black; /* 선의 스타일 지정 */
+        height: 40%; /* 선의 높이를 div의 높이에 맞게 설정 */
+        position: absolute; /* 절대 위치 설정 */
+        left: 50%; /* 가운데 정렬을 위해 왼쪽에서 중앙으로 이동 */
+        top: 25%; /* 위에서부터 정렬 */
+        transform: translateX(-50%); /* 가운데 정렬을 위해 왼쪽으로 이동한 걸 다시 조정 */
+    }
+	
+	

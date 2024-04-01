@@ -1,4 +1,4 @@
-package onedaybacking;
+package onedaybaking;
 
 public class announceBean {
 
@@ -14,6 +14,7 @@ public class announceBean {
 	
 	private int announceView;
 	
+	private String announceFile;
 	
 	
 	public int getAnnounceNum() {
@@ -64,5 +65,12 @@ public class announceBean {
 		this.announceView = announceView;
 	}
 
+	public String getAnnounceFile() {
+		return announceFile;
+	}
+
+	public void setAnnounceFile(String announceFile) {
+		this.announceFile = announceFile;
+	}
 
 }

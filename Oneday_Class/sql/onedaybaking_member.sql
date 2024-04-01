@@ -16,32 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminboard`
+-- Table structure for table `member`
 --
 
-DROP TABLE IF EXISTS `adminboard`;
+DROP TABLE IF EXISTS `member`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminboard` (
-  `num` int NOT NULL AUTO_INCREMENT,
-  `ename` char(20) NOT NULL,
-  `kname` char(20) NOT NULL,
-  `usevalue` char(2) DEFAULT '0',
-  `listvalue` int DEFAULT '0',
-  `readvalue` int DEFAULT '0',
-  `writevalue` int DEFAULT '0',
-  PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `member` (
+  `memberid` varchar(100) NOT NULL,
+  `memberpwd` varchar(100) DEFAULT NULL,
+  `membername` varchar(100) DEFAULT NULL,
+  `memberbirth` varchar(100) DEFAULT NULL,
+  `membersex` varchar(10) DEFAULT NULL,
+  `membernick` varchar(100) DEFAULT NULL,
+  `memberphone` varchar(100) DEFAULT NULL,
+  `signout` varchar(10) DEFAULT NULL,
+  `auth` int DEFAULT NULL,
+  `memberinfoimg` varchar(100) DEFAULT NULL,
+  `memberinfo` varchar(100) DEFAULT NULL,
+  `memberdate` date NOT NULL,
+  PRIMARY KEY (`memberid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminboard`
+-- Dumping data for table `member`
 --
 
-LOCK TABLES `adminboard` WRITE;
-/*!40000 ALTER TABLE `adminboard` DISABLE KEYS */;
-INSERT INTO `adminboard` VALUES (1,'announcement','공지사항','0',0,0,0),(2,'freeboard','자유게시판','0',0,0,0),(3,'inquiry','문의사항','0',0,0,0),(4,'Q&A','Q&A','0',0,0,0),(5,'hello World','테스트','0',0,1,2),(6,'ㅁㄴㅇㅁ','ㅁㄴㅇㄴㅁ','0',1,NULL,NULL),(7,'ㅗㅓ','ㅗㅓ호','0',NULL,NULL,NULL),(8,'ㄴㅁㅇ','ㅁㄴㅇㄴㅁㅇ','0',NULL,NULL,NULL),(9,'ㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㄴㅁㅇ','0',NULL,NULL,NULL),(12,'호ㅓㅗ허','호ㅓ호ㅓ','0',1,1,2),(13,'acsac','sacsacas','0',1,0,1),(22,'ㅁㄴㅁㅊㄴㅁㅊ','ㅁㅊㅁㄴㅊㄴㅁ','0',1,0,2);
-/*!40000 ALTER TABLE `adminboard` ENABLE KEYS */;
+LOCK TABLES `member` WRITE;
+/*!40000 ALTER TABLE `member` DISABLE KEYS */;
+INSERT INTO `member` VALUES ('aaaa','1111','박민재','19991020','0','박민재','01047037419','N',1,'cart.png',NULL,'2024-04-01');
+/*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 18:25:20
+-- Dump completed on 2024-04-01 18:25:21

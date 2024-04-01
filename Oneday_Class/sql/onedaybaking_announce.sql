@@ -29,8 +29,11 @@ CREATE TABLE `announce` (
   `announceWriter` varchar(255) DEFAULT NULL,
   `announceDay` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `announceView` int DEFAULT NULL,
+  `announceFile` varchar(255) DEFAULT NULL,
+  `upFile` char(50) DEFAULT NULL,
+  `size` int DEFAULT NULL,
   PRIMARY KEY (`announceNum`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `announce` (
 
 LOCK TABLES `announce` WRITE;
 /*!40000 ALTER TABLE `announce` DISABLE KEYS */;
-INSERT INTO `announce` VALUES (1,'ㅁㄴㅇㄴㅁㅇㄴㅁ',NULL,'작성자','2024-03-27 22:07:00',0),(2,'ㅊㅁㅁㄴㅊ',NULL,'작성자','2024-03-27 22:07:25',0),(3,'ㅁㅊㄴㅁㅊ',NULL,'작성자','2024-03-27 22:09:10',0),(4,'ㅁㅊㅁ',NULL,'user_id','2024-03-27 22:09:56',0),(5,'ㅍㅁㄴㅁㅍㅁㄴ',NULL,'user_id','2024-03-27 22:18:45',0),(6,NULL,NULL,'user_id','2024-03-27 22:19:50',0),(7,'ㅁㅇㅍㅁㅍㅇ','ㅁㅍㅁㅇㅍ\r\n','user_id','2024-03-27 22:20:01',0);
+INSERT INTO `announce` VALUES (1,'1','1','user_id','2024-03-31 16:39:55',0,NULL,NULL,NULL),(2,'2','2','user_id','2024-03-31 16:40:04',0,NULL,NULL,NULL),(3,'3','3','user_id','2024-03-31 16:40:15',0,NULL,NULL,NULL),(4,'4','4','user_id','2024-03-31 16:40:19',0,NULL,NULL,NULL),(5,'5','5','user_id','2024-03-31 16:40:23',0,NULL,NULL,NULL),(9,'6','6','user_id','2024-03-31 17:30:39',0,NULL,NULL,NULL),(10,'7','7','user_id','2024-03-31 17:32:03',0,NULL,NULL,NULL),(11,'8','8',NULL,'2024-03-31 17:38:43',0,NULL,NULL,NULL),(34,'9','9','aaaa','2024-03-31 22:42:35',0,'',NULL,NULL),(35,'10','10','aaaa','2024-03-31 22:42:59',0,'heart.png',NULL,NULL),(36,'11','11','aaaa','2024-03-31 22:44:45',0,'heart2.png',NULL,NULL),(37,'ㅊㅁㄴㅊㅁㄴㅊㅁㄴㅊ','ㅁㅊㄴㅁㅊㄴㅁ','aaaa','2024-03-31 22:47:24',0,'logo2.png',NULL,NULL),(38,'ㅁㅍㅁㅍ','ㅁㅍㅁㅍㄴㅁㅍㅁ','aaaa','2024-03-31 22:48:58',0,'search.png',NULL,NULL),(39,'ㅁㄴㅊㄴㅁㅊ','ㅁㅊㅁㄴㅊㅁㄴㅊㄴㅁ','aaaa','2024-03-31 22:50:54',0,'heart2.png',NULL,NULL),(40,'ㅁㄴㅊㄴㅁ','ㅊㅁㄴㅊㅁㅊ','aaaa','2024-03-31 23:08:35',0,'logo2.png',NULL,NULL);
 /*!40000 ALTER TABLE `announce` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-28 17:46:47
+-- Dump completed on 2024-04-01 18:25:21

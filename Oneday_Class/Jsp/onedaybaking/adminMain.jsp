@@ -1,8 +1,8 @@
 <!-- adminMain.jsp -->
-<%@page import="onedaybacking.boardBean"%>
+<%@page import="onedaybaking.boardBean"%>
 <%@page import="java.util.Vector"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
-<jsp:useBean id="mgr" class="onedaybacking.minjaeMgr" />
+<jsp:useBean id="mmgr" class="onedaybaking.minjaeMgr" />
 
 <html>
 <head>
@@ -91,7 +91,7 @@
 				
 				<tbody id="square">
 					<%
-						Vector<boardBean> llist = mgr.selectAllAdminBoards();
+						Vector<boardBean> llist = mmgr.selectAllAdminBoards();
 					%>
 					<tr style="background-color: rgb(237, 237, 237)">
 						<th scope="col">주문번호</th>
@@ -103,7 +103,7 @@
 						<th scope="col">주문일자</th>
 					</tr>
 					<%
-						Vector<boardBean> list = mgr.selectAllAdminBoards();
+						Vector<boardBean> list = mmgr.selectAllAdminBoards();
 						for (int i = 0; i < list.size(); i++) {
 							boardBean bbean = list.get(i);
 					%>

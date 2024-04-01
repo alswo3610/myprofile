@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminboard`
+-- Table structure for table `totalorder`
 --
 
-DROP TABLE IF EXISTS `adminboard`;
+DROP TABLE IF EXISTS `totalorder`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminboard` (
-  `num` int NOT NULL AUTO_INCREMENT,
-  `ename` char(20) NOT NULL,
-  `kname` char(20) NOT NULL,
-  `usevalue` char(2) DEFAULT '0',
-  `listvalue` int DEFAULT '0',
-  `readvalue` int DEFAULT '0',
-  `writevalue` int DEFAULT '0',
-  PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `totalorder` (
+  `totalorderkey` int NOT NULL AUTO_INCREMENT,
+  `totalprice` int DEFAULT NULL,
+  `ordercard` varchar(100) DEFAULT NULL,
+  `orderdate` date DEFAULT NULL,
+  `memberid` varchar(100) DEFAULT NULL,
+  `classorderkey` int DEFAULT NULL,
+  `itemorderkey` int DEFAULT NULL,
+  PRIMARY KEY (`totalorderkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminboard`
+-- Dumping data for table `totalorder`
 --
 
-LOCK TABLES `adminboard` WRITE;
-/*!40000 ALTER TABLE `adminboard` DISABLE KEYS */;
-INSERT INTO `adminboard` VALUES (1,'announcement','공지사항','0',0,0,0),(2,'freeboard','자유게시판','0',0,0,0),(3,'inquiry','문의사항','0',0,0,0),(4,'Q&A','Q&A','0',0,0,0),(5,'hello World','테스트','0',0,1,2),(6,'ㅁㄴㅇㅁ','ㅁㄴㅇㄴㅁ','0',1,NULL,NULL),(7,'ㅗㅓ','ㅗㅓ호','0',NULL,NULL,NULL),(8,'ㄴㅁㅇ','ㅁㄴㅇㄴㅁㅇ','0',NULL,NULL,NULL),(9,'ㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㄴㅁㅇ','0',NULL,NULL,NULL),(12,'호ㅓㅗ허','호ㅓ호ㅓ','0',1,1,2),(13,'acsac','sacsacas','0',1,0,1),(22,'ㅁㄴㅁㅊㄴㅁㅊ','ㅁㅊㅁㄴㅊㄴㅁ','0',1,0,2);
-/*!40000 ALTER TABLE `adminboard` ENABLE KEYS */;
+LOCK TABLES `totalorder` WRITE;
+/*!40000 ALTER TABLE `totalorder` DISABLE KEYS */;
+/*!40000 ALTER TABLE `totalorder` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 18:25:20
+-- Dump completed on 2024-04-01 18:25:22

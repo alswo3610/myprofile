@@ -16,32 +16,46 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `adminboard`
+-- Table structure for table `itemoption`
 --
 
-DROP TABLE IF EXISTS `adminboard`;
+DROP TABLE IF EXISTS `itemoption`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `adminboard` (
-  `num` int NOT NULL AUTO_INCREMENT,
-  `ename` char(20) NOT NULL,
-  `kname` char(20) NOT NULL,
-  `usevalue` char(2) DEFAULT '0',
-  `listvalue` int DEFAULT '0',
-  `readvalue` int DEFAULT '0',
-  `writevalue` int DEFAULT '0',
-  PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `itemoption` (
+  `optionkey` int NOT NULL AUTO_INCREMENT,
+  `itemoption1` varchar(100) DEFAULT NULL,
+  `itemoption2` date DEFAULT NULL,
+  `itemoption3` int DEFAULT NULL,
+  `itemoption4` varchar(100) DEFAULT NULL,
+  `itemoption5` varchar(10) DEFAULT NULL,
+  `itemoption6` varchar(100) DEFAULT NULL,
+  `itemoption7` varchar(10) DEFAULT NULL,
+  `itemoption8` int DEFAULT NULL,
+  `itemoption9` varchar(100) DEFAULT NULL,
+  `itemoption10` varchar(100) DEFAULT NULL,
+  `itemsoption1` varchar(100) DEFAULT NULL,
+  `itemsoption2` varchar(100) DEFAULT NULL,
+  `itemsoption3` varchar(100) DEFAULT NULL,
+  `itemsoption4` varchar(100) DEFAULT NULL,
+  `itemsoption5` varchar(100) DEFAULT NULL,
+  `itemsoption6` varchar(100) DEFAULT NULL,
+  `itemsoption7` varchar(100) DEFAULT NULL,
+  `itemsoption8` varchar(100) DEFAULT NULL,
+  `itemsoption9` varchar(100) DEFAULT NULL,
+  `itemsoption10` varchar(100) DEFAULT NULL,
+  `itemkey` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`optionkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `adminboard`
+-- Dumping data for table `itemoption`
 --
 
-LOCK TABLES `adminboard` WRITE;
-/*!40000 ALTER TABLE `adminboard` DISABLE KEYS */;
-INSERT INTO `adminboard` VALUES (1,'announcement','공지사항','0',0,0,0),(2,'freeboard','자유게시판','0',0,0,0),(3,'inquiry','문의사항','0',0,0,0),(4,'Q&A','Q&A','0',0,0,0),(5,'hello World','테스트','0',0,1,2),(6,'ㅁㄴㅇㅁ','ㅁㄴㅇㄴㅁ','0',1,NULL,NULL),(7,'ㅗㅓ','ㅗㅓ호','0',NULL,NULL,NULL),(8,'ㄴㅁㅇ','ㅁㄴㅇㄴㅁㅇ','0',NULL,NULL,NULL),(9,'ㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㄴㅁㅇ','0',NULL,NULL,NULL),(12,'호ㅓㅗ허','호ㅓ호ㅓ','0',1,1,2),(13,'acsac','sacsacas','0',1,0,1),(22,'ㅁㄴㅁㅊㄴㅁㅊ','ㅁㅊㅁㄴㅊㄴㅁ','0',1,0,2);
-/*!40000 ALTER TABLE `adminboard` ENABLE KEYS */;
+LOCK TABLES `itemoption` WRITE;
+/*!40000 ALTER TABLE `itemoption` DISABLE KEYS */;
+/*!40000 ALTER TABLE `itemoption` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-01 18:25:20
+-- Dump completed on 2024-04-01 18:25:21
